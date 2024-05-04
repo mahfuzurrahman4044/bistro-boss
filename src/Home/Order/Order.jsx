@@ -35,23 +35,25 @@ const Order = () => {
         >
           <SwiperSlide>
             <img src={swiperImg1} alt="" />
-            <h3 className=" text-white text-3xl uppercase -mt-32">Salads</h3>
+            <h3 className="text-white text-3xl uppercase font-serif">Salads</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg2} alt="" />
-            <h3 className=" text-white text-3xl uppercase -mt-32">Soups</h3>
+            <h3 className="text-white text-3xl uppercase font-serif">Soups</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg3} alt="" />
-            <h3 className=" text-white text-3xl uppercase -mt-32">pizzas</h3>
+            <h3 className="text-white text-3xl uppercase font-serif">pizzas</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg4} alt="" />
-            <h3 className=" text-white text-3xl uppercase -mt-32">desserts</h3>
+            <h3 className="text-white text-3xl uppercase font-serif">
+              desserts
+            </h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg5} alt="" />
-            <h3 className=" text-white text-3xl uppercase -mt-32">Salad</h3>
+            <h3 className="text-white text-3xl uppercase font-serif">Salad</h3>
           </SwiperSlide>
         </Swiper>
       </div>
