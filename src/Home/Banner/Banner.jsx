@@ -1,6 +1,8 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+import "./Banner.css";
+
 import sliderImg1 from "../../assets/home/01.jpg";
 import sliderImg2 from "../../assets/home/02.jpg";
 import sliderImg3 from "../../assets/home/03.png";
@@ -11,24 +13,24 @@ import sliderImg6 from "../../assets/home/06.png";
 const Banner = () => {
   return (
     <div>
-      <Carousel>
+      <Carousel className="">
         <div>
-          <img src={sliderImg1} />
+          <img className="carousel-img" src={sliderImg1} />
         </div>
         <div>
-          <img src={sliderImg2} />
+          <img className="carousel-img" src={sliderImg2} />
         </div>
         <div>
-          <img src={sliderImg3} />
+          <img className="carousel-img" src={sliderImg3} />
         </div>
         <div>
-          <img src={sliderImg4} />
+          <img className="carousel-img" src={sliderImg4} />
         </div>
         <div>
-          <img src={sliderImg5} />
+          <img className="carousel-img" src={sliderImg5} />
         </div>
         <div>
-          <img src={sliderImg6} />
+          <img className="carousel-img" src={sliderImg6} />
         </div>
       </Carousel>
     </div>

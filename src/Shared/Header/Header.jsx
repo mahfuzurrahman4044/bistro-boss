@@ -123,7 +123,7 @@ const Header = () => {
             <li>
               <Link to="/login">Login</Link>
             </li>
-            <li className="relative">
+            <li className="">
               <button onClick={toggleProfileMenu}>
                 <img
                   className="h-7 w-7 rounded-full"
@@ -133,12 +133,12 @@ const Header = () => {
               </button>
               {isProfileMenuOpen && (
                 <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
-                  <li className="px-4 py-2 hover:bg-stone-700">
+                  <li className="px-4 py-2 hover:bg-stone-700 rounded-md">
                     <Link onClick={closeProfileMenu} to="/profile">
                       Profile
                     </Link>
                   </li>
-                  <li className="px-4 py-2 hover:bg-stone-700">
+                  <li className="px-4 py-2 hover:bg-stone-700 rounded-md">
                     <Link onClick={closeProfileMenu} to="/login">
                       Log Out
                     </Link>
