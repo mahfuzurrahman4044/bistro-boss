@@ -40,14 +40,16 @@ const Testimonials = () => {
             <SwiperSlide key={review._id}>
               <div>
                 <div className="flex justify-center my-10">
-                <Rating
-                  style={{ maxWidth: 180 }}
-                  value={review.rating}
-                  readOnly
-                />
+                  <Rating
+                    style={{ maxWidth: 180 }}
+                    value={review.rating}
+                    readOnly
+                  />
                 </div>
                 <p className="px-16">{review.details}</p>
-                <h2 className="uppercase text-yellow-600">{review.name}</h2>
+                <h2 className="uppercase text-yellow-600 font-serif text-2xl">
+                  {review.name}
+                </h2>
               </div>
             </SwiperSlide>
           ))}
