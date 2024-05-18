@@ -17,19 +17,19 @@ const Banner = () => {
         <div className="carousel-img">
           <img src={sliderImg1} />
         </div>
-        <div>
+        <div className="carousel-img">
           <img src={sliderImg2} />
         </div>
-        <div>
+        <div className="carousel-img">
           <img src={sliderImg3} />
         </div>
-        <div>
+        <div className="carousel-img">
           <img src={sliderImg4} />
         </div>
-        <div>
+        <div className="carousel-img">
           <img src={sliderImg5} />
         </div>
-        <div>
+        <div className="carousel-img">
           <img src={sliderImg6} />
         </div>
       </Carousel>

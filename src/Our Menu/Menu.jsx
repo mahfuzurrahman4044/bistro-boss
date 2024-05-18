@@ -6,7 +6,7 @@ import Pizza from "./Pizza/Pizza";
 import Soups from "./Soups/Soups";
 import Salads from "./Salads/Salads";
 
-const OurMenu = () => {
+const Menu = () => {
   return (
     <div>
       <Helmet>
@@ -22,4 +22,4 @@ const OurMenu = () => {
   );
 };
 
-export default OurMenu;
+export default Menu;

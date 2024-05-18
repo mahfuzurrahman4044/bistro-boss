@@ -1,5 +1,4 @@
-import "./Order.css";
-
+import "./OrderOnline.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -14,7 +13,7 @@ import swiperImg4 from "../../assets/home/slide4.jpg";
 import swiperImg5 from "../../assets/home/slide5.jpg";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
-const Order = () => {
+const OrderOnline = () => {
   return (
     <div>
       <SectionTitle
@@ -59,4 +58,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default OrderOnline;

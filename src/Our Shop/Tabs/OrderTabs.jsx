@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import MenuTab from "./MenuTab";
+import TabItems from "./TabItems";
+import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
-const MenuTabs = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
+const OrderTabs = () => {
+  const [isLoading, menus] = UseMenus([]);
 
-  const salad = menu.filter((item) => item.category === "salad");
-  const soup = menu.filter((item) => item.category === "soup");
-  const dessert = menu.filter((item) => item.category === "dessert");
-  const pizza = menu.filter((item) => item.category === "pizza");
-  const drinks = menu.filter((item) => item.category === "drinks");
+  const salad = menus.filter((item) => item.category === "salad");
+  const soup = menus.filter((item) => item.category === "soup");
+  const dessert = menus.filter((item) => item.category === "dessert");
+  const pizza = menus.filter((item) => item.category === "pizza");
+  const drinks = menus.filter((item) => item.category === "drinks");
 
   return (
     <div className="ps-16 -mt-32">
@@ -32,35 +25,35 @@ const MenuTabs = () => {
         <TabPanel>
           <div className="grid grid-cols-3 gap-4">
             {salad.map((item) => (
-              <MenuTab key={item._id} item={item}></MenuTab>
+              <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-3 gap-4">
             {pizza.map((item) => (
-              <MenuTab key={item._id} item={item}></MenuTab>
+              <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-3 gap-4">
             {soup.map((item) => (
-              <MenuTab key={item._id} item={item}></MenuTab>
+              <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div className="grid grid-cols-3 gap-4">
             {dessert.map((item) => (
-              <MenuTab key={item._id} item={item}></MenuTab>
+              <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
           <div className="grid lg:grid-cols-3 gap-4">
             {drinks.map((item) => (
-              <MenuTab key={item._id} item={item}></MenuTab>
+              <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
@@ -69,4 +62,4 @@ const MenuTabs = () => {
   );
 };
 
-export default MenuTabs;
+export default OrderTabs;

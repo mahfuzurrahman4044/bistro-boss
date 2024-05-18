@@ -1,9 +1,9 @@
 import { Helmet } from "react-helmet";
 import Banner from "./Banner/Banner";
-import MenuTabs from "./Tabs/MenuTabs";
 import { useParams } from "react-router-dom";
+import OrderTabs from "./Tabs/OrderTabs";
 
-const OurShop = () => {
+const Order = () => {
   const { category } = useParams();
   console.log(category);
   return (
@@ -12,9 +12,9 @@ const OurShop = () => {
         <title>Our Shop || Bistro Boss Restaurant</title>
       </Helmet>
       <Banner></Banner>
-      <MenuTabs></MenuTabs>
+      <OrderTabs></OrderTabs>
     </div>
   );
 };
 
-export default OurShop;
+export default Order;

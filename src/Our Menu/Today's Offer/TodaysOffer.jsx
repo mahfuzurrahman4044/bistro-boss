@@ -1,21 +1,11 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Menus from "../../Shared/Menus/Menus";
+import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
 const TodaysOffer = () => {
-  const [menu, setMenu] = useState([]);
+  const [isLoading, menus]=UseMenus()
 
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
-
-  //   console.log(menu);
-
-  const offer = menu.filter((menu) => menu.category === "offered");
+  const offer = menus.filter((menu) => menu.category === "offered");
   console.log(offer);
 
   return (

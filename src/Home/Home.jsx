@@ -1,12 +1,12 @@
 import Banner from "./Banner/Banner";
 import ChefRecommends from "./Chef Recommends/ChefRecommends";
-import ContactBanner from "./Contact Banner/ContactBanner";
 import PopularMenu from "./Popular Menu/PopularMenu";
-import Order from "./Order/Order";
 import Poster from "./Poster/Poster";
 import FromOurMenu from "./From Our Menu/FromOurMenu";
 import Testimonials from "./Testimonials/Testimonials";
 import { Helmet } from "react-helmet";
+import Contact from "./Contact/Contact";
+import OrderOnline from "./OrderOnline/OrderOnline";
 
 const Home = () => {
   return (
@@ -15,10 +15,10 @@ const Home = () => {
         <title>Bistro Boss Restaurant</title>{" "}
       </Helmet>
       <Banner></Banner>
-      <Order></Order>
+      <OrderOnline></OrderOnline>
       <Poster></Poster>
       <PopularMenu></PopularMenu>
-      <ContactBanner></ContactBanner>
+      <Contact></Contact>
       <ChefRecommends></ChefRecommends>
       <FromOurMenu></FromOurMenu>
       <Testimonials></Testimonials>

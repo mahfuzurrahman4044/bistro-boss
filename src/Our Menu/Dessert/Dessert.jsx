@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
 import SectionBanner from "../../Shared/Section Banner/SectionBanner";
 import img from "../../assets/home/chef-service.jpg";
 import Menus from "../../Shared/Menus/Menus";
-import { Link } from "react-router-dom";
+import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
 const Dessert = () => {
-  const [menu, setMenu] = useState([]);
+  const [isLoading, menus] = UseMenus()
 
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
+  console.log(menus);
 
-  // console.log(menu);
-
-  const dessert = menu.filter((menu) => menu.category === "dessert");
+  const dessert = menus.filter((menu) => menu.category === "dessert");
   console.log(dessert);
 
   return (
@@ -41,11 +32,6 @@ const Dessert = () => {
             price={menu.price}
           ></Menus>
         ))}
-      </div>
-      <div className="text-center pb-16">
-        <Link to="/ourShop">
-          <button className="btn border-yellow-600">Order Now</button>
-        </Link>
       </div>
     </div>
   );

@@ -2,14 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
+
 import Layout from "./Layout/Layout";
 import Home from "./Home/Home";
-import OurMenu from "./Our Menu/OurMenu";
-import OurShop from "./Our Shop/OurShop";
 import ContactUs from "./Contact US/ContactUs";
 import SignUp from "./Account/Sign Up/SignUp";
 import Login from "./Account/Login/Login";
 import Profile from "./Account/Profile/Profile";
+import Menu from "./Our Menu/Menu";
+import Order from "./Our Shop/Order";
+import Buyer from "./Dashboard/Buyer/Buyer";
 
 const router = createBrowserRouter([
   {
@@ -21,13 +28,18 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/ourMenu",
-        element: <OurMenu></OurMenu>,
+        path: "/menu",
+        element: <Menu></Menu>
       },
       {
-        path: "/ourShop",
-        element: <OurShop></OurShop>,
+        path: "/order",
+        element: <Order></Order>,
       },
+      {
+        path: "/dashboard",
+        element: <Buyer></Buyer>,
+      },
+      
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
@@ -50,6 +62,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

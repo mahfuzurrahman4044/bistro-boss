@@ -1,4 +1,4 @@
-const MenuTab = ({ item }) => {
+const TabItems = ({ item }) => {
   const { image, name, recipe } = item;
   return (
     <div>
@@ -18,4 +18,4 @@ const MenuTab = ({ item }) => {
   );
 };
 
-export default MenuTab;
+export default TabItems;

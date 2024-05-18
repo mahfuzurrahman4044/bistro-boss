@@ -1,20 +1,14 @@
-import { useEffect, useState } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
+import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
 const ChefRecommends = () => {
-  const [menu, setMenu] = useState([]);
+  const [isLoading, menus] = UseMenus();
 
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  //   console.log(menu);
-
-  const chefRecommends = menu.filter((menu) => menu?.recommend === "yes");
+  const chefRecommends = menus.filter((menu) => menu?.recommend === "yes");
   console.log(chefRecommends);
   return (
     <div>

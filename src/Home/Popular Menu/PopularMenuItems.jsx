@@ -1,4 +1,4 @@
-const MenuItems = ({ item }) => {
+const PopularMenuItems = ({ item }) => {
   console.log(item);
   const { name, image, price, recipe } = item;
   return (
@@ -19,4 +19,4 @@ const MenuItems = ({ item }) => {
   );
 };
 
-export default MenuItems;
+export default PopularMenuItems;

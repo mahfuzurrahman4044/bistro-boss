@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
 import SectionBanner from "../../Shared/Section Banner/SectionBanner";
 import img from "../../assets/home/chef-service.jpg";
 import Menus from "../../Shared/Menus/Menus";
+import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
 const Pizza = () => {
-  const [menu, setMenu] = useState([]);
+  const [isLoading, menus] = UseMenus()
 
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenu(data);
-      });
-  }, []);
+  console.log(menus);
 
-  //   console.log(menu);
-
-  const pizza = menu.filter((menu) => menu.category === "pizza");
+  const pizza = menus.filter((menu) => menu.category === "pizza");
   console.log(pizza);
   return (
     <div>
