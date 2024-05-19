@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom";
 import icon from "../../assets/icon/Bistro Boss Our Shop Icon.png";
 import ProfileIcon from "../../assets/icon/Profile.jpeg";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Account/Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext)
+
+  const handleLogOut = () => {
+    logOut()
+      .then({})
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Logged Out",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+
   const [isProfileMenuOpen, setProfileMenuOpen] = useState(false);
 
   const toggleProfileMenu = () => {
@@ -16,7 +32,6 @@ const Header = () => {
     }
   };
 
-  const user = true;
   return (
     <div className="">
       <div className="navbar fixed z-10 bg-opacity-20 bg-black text-white">
@@ -66,29 +81,30 @@ const Header = () => {
               </li>
               <li>
                 {
-                  user ? <div><li className="">
-                    <button onClick={toggleProfileMenu}>
-                      <img
-                        className="h-7 w-7 rounded-full"
-                        src={ProfileIcon}
-                        alt="Profile"
-                      />
-                    </button>
-                    {isProfileMenuOpen && (
-                      <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
-                        <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
-                          <Link onClick={closeProfileMenu} to="/profile">
-                            Profile
-                          </Link>
-                        </li>
-                        <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
-                          <Link onClick={closeProfileMenu} to="/login">
-                            Log Out
-                          </Link>
-                        </li>
-                      </ul>
-                    )}
-                  </li></div>
+                  user ? <div>
+                    <li className="">
+                      <button onClick={toggleProfileMenu}>
+                        <img
+                          className="h-7 w-7 rounded-full"
+                          src={ProfileIcon}
+                          alt="Profile"
+                        />
+                      </button>
+                      {isProfileMenuOpen && (
+                        <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
+                          <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
+                            <Link onClick={closeProfileMenu} to="/profile">
+                              Profile
+                            </Link>
+                          </li>
+                          <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
+                            <Link onClick={closeProfileMenu && handleLogOut} to="/">
+                              Log Out
+                            </Link>
+                          </li>
+                        </ul>
+                      )}
+                    </li></div>
                     : <li>
                       <Link to="/login">Login</Link>
                     </li>
@@ -148,7 +164,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
-                        <Link onClick={closeProfileMenu} to="/login">
+                        <Link onClick={closeProfileMenu && handleLogOut} to="/">
                           Log Out
                         </Link>
                       </li>
@@ -156,7 +172,7 @@ const Header = () => {
                   )}
                 </li></div>
                   : <li>
-                    <Link to="/login">Login</Link>
+                    <Link className="btn" to="/login">Login</Link>
                   </li>
               }
             </li>

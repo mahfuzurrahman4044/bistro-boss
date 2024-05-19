@@ -9,7 +9,7 @@ const Order = () => {
   return (
     <div>
       <Helmet>
-        <title>Our Shop || Bistro Boss Restaurant</title>
+        <title>Order || Bistro Boss Restaurant</title>
       </Helmet>
       <Banner></Banner>
       <OrderTabs></OrderTabs>

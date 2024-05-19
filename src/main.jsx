@@ -17,6 +17,8 @@ import Profile from "./Account/Profile/Profile";
 import Menu from "./Our Menu/Menu";
 import Order from "./Our Shop/Order";
 import Buyer from "./Dashboard/Buyer/Buyer";
+import AuthProvider from "./Account/Provider/AuthProvider";
+import PrivateRoute from "./Account/Private Route/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -37,9 +39,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Buyer></Buyer>,
+        element: <PrivateRoute><Buyer></Buyer></PrivateRoute>,
       },
-      
+
       {
         path: "/signUp",
         element: <SignUp></SignUp>,
@@ -62,8 +64,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router}></RouterProvider>
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}></RouterProvider>
+      </QueryClientProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
