@@ -8,7 +8,7 @@ import "./Login.css"
 
 const Login = () => {
   const [error, setError] = useState("")
-  const { signIn } = useContext(AuthContext);
+  const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -43,6 +43,15 @@ const Login = () => {
         console.log(error)
         setError("Try Again")
       })
+
+
+  }
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((res) => {
+        const loggedUser = res.user;
+      })
   }
   return (
     <div>
@@ -74,7 +83,7 @@ const Login = () => {
                 <button className="btn btn-ghost border-amber-700 text-yellow-600">Login</button>
               </div>
               <div className="divider">OR</div>
-              <div className="text-center btn btn-ghost border-amber-700 text-yellow-600"><i className="fa-brands fa-google"></i></div>
+              <div onClick={handleGoogleSignIn} className="text-center btn btn-ghost border-amber-700 text-yellow-600"><i className="fa-brands fa-google"></i></div>
             </form>
           </div>
           <div className="text-center lg:text-left">
