@@ -28,7 +28,7 @@ const FromOurMenu = () => {
             consequuntur omnis ullam maxime tenetur.
           </p>
           <div>
-            <button className="mt-3 btn uppercase border-yellow-600">Read More</button>
+            <button className="mt-3 btn uppercase border-amber-700 text-yellow-600">Read More</button>
           </div>
         </div>
       </div>

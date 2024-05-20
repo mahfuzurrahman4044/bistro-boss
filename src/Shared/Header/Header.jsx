@@ -120,8 +120,8 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="navbar-end hidden lg:block ">
-          <ul className="menu menu-horizontal px-1 flex justify-end items-center">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -131,48 +131,55 @@ const Header = () => {
             <li>
               <Link to="/order">
                 Order
-                <img
-                  className="h-5 w-5"
-                  src={icon}
-                  alt="Bistro Boss Our Shop Icon"
-                />
+
               </Link>
             </li>
-            <li>
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
+            {
+              user ?
+                <li>
+                  <Link to="/dashboard">Dashboard</Link>
+                </li>
+                :
+                <></>
+            }
             <li>
               <Link to="/contactUs">Contact Us</Link>
             </li>
+          </ul>
+        </div>
 
+        <div className="navbar-end hidden lg:block ">
+          <ul className="menu menu-horizontal px-1 flex justify-end items-center">
 
             <li>
               {
-                user ? <div><li className="">
-                  <button onClick={toggleProfileMenu}>
-                    <img
-                      className="h-7 w-7 rounded-full"
-                      src={ProfileIcon}
-                      alt="Profile"
-                    />
-                  </button>
-                  {isProfileMenuOpen && (
-                    <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
-                      <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
-                        <Link onClick={closeProfileMenu} to="/profile">
-                          Profile
-                        </Link>
-                      </li>
-                      <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
-                        <Link onClick={closeProfileMenu && handleLogOut} to="/">
-                          Log Out
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </li></div>
+                user ?
+                  <div>
+                    <li className="">
+                      <button onClick={toggleProfileMenu}>
+                        <img
+                          className="h-7 w-7 rounded-full"
+                          src={ProfileIcon}
+                          alt="Profile"
+                        />
+                      </button>
+                      {isProfileMenuOpen && (
+                        <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
+                          <li className="px-4 py-2 hover:border border-amber-700 rounded-md">
+                            <Link onClick={closeProfileMenu} to="/profile">
+                              Profile
+                            </Link>
+                          </li>
+                          <li className="px-4 py-2 hover:border border-amber-700 rounded-md">
+                            <Link onClick={closeProfileMenu && handleLogOut} to="/">
+                              Log Out
+                            </Link>
+                          </li>
+                        </ul>
+                      )}
+                    </li></div>
                   : <li>
-                    <Link className="btn" to="/login">Login</Link>
+                    <Link className="btn btn-ghost border-amber-700" to="/login">Login</Link>
                   </li>
               }
             </li>

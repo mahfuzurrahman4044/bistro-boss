@@ -16,9 +16,9 @@ import Login from "./Account/Login/Login";
 import Profile from "./Account/Profile/Profile";
 import Menu from "./Our Menu/Menu";
 import Order from "./Our Shop/Order";
-import Buyer from "./Dashboard/Buyer/Buyer";
 import AuthProvider from "./Account/Provider/AuthProvider";
 import PrivateRoute from "./Account/Private Route/PrivateRoute";
+import Buyer from "./Dashboard/Buyer/Buyer";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/order",
-        element: <Order></Order>,
+        element: <PrivateRoute><Order></Order></PrivateRoute>,
       },
       {
         path: "/dashboard",

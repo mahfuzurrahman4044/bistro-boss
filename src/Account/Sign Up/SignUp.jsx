@@ -4,9 +4,10 @@ import { Helmet } from "react-helmet";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import img from "../../assets/others/authentication2.png"
 
 const SignUp = () => {
-  const [error, setError] = useState("")
+  const [error, setError] = useState(false); // State to track password visibility
   const navigate = useNavigate()
   const { createUser, updateUser } = useContext(AuthContext)
 
@@ -25,15 +26,24 @@ const SignUp = () => {
         .then((result) => {
           const createdUser = result.user;
           console.log(createdUser);
+          setError("")
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Account has been created",
+            showConfirmButton: false,
+            timer: 1500
+          });
           navigate("/")
-
           updateUser(data.name, data.photo)
             .then(() => {
               console.log("User has been updated")
               reset()
             })
-          setError("")
+
             .catch((error) => {
+              console.log(error.message)
+              setError("")
             });
         })
     }
@@ -138,9 +148,14 @@ const SignUp = () => {
               </div>
               <p className="text-red-600 text-center">{error}</p>
               <div className="form-control mt-6">
-                <button className="btn btn-primary" type="submit">Sign Up</button>
+                <button className="btn btn-ghost border-amber-700 text-yellow-600" type="submit">Sign Up</button>
               </div>
+
             </form>
+
+          </div>
+          <div className="text-center lg:text-left">
+            <img className="" src={img} alt="" />
           </div>
         </div>
       </div>

@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import img from "../../assets/others/authentication2.png"
+import "./Login.css"
 
 const Login = () => {
   const [error, setError] = useState("")
@@ -30,7 +32,10 @@ const Login = () => {
           icon: "success",
           title: "Login Successful",
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          customClass: {
+            icon: 'swal2-icon-success-custom'
+          }
         });
         navigate(from, { replace: true })
       })
@@ -46,8 +51,7 @@ const Login = () => {
       </Helmet>
       <div className="hero min-h-screen pt-28">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <div className="text-center lg:text-left">
-          </div>
+
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body" onSubmit={handleSubmit}>
               <div className="form-control">
@@ -67,11 +71,14 @@ const Login = () => {
               </div>
               <p className="text-red-600 text-center">{error}</p>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-ghost border-amber-700 text-yellow-600">Login</button>
               </div>
               <div className="divider">OR</div>
-              <div className="text-center btn btn-primary"><i className="fa-brands fa-google"></i></div>
+              <div className="text-center btn btn-ghost border-amber-700 text-yellow-600"><i className="fa-brands fa-google"></i></div>
             </form>
+          </div>
+          <div className="text-center lg:text-left">
+            <img className="" src={img} alt="" />
           </div>
         </div>
       </div>

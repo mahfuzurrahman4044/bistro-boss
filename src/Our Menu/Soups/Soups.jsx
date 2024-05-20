@@ -33,7 +33,7 @@ const Soups = () => {
         ))}
       </div>
       {/* <div className="text-center">
-        <button className="btn border-yellow-600 ">Order Now</button>
+        <button className="btn border-amber-700 ">Order Now</button>
       </div> */}
     </div>
   );

@@ -1,0 +1,7 @@
+.swal2-icon.swal2-success {
+    border-color: #d97706 !important;
+}
+
+.swal2-icon.swal2-success [class*='swal2-success-line'] {
+    background-color: #d97706 !important;
+}
