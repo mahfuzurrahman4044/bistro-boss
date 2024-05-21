@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import bannerImg from "../assets/contact/banner.jpg"
+import { Helmet } from "react-helmet";
 const ContactUs = () => {
     const handleForm = (e) => {
         e.preventDefault();
@@ -29,7 +30,7 @@ const ContactUs = () => {
     }
     return (
         <div>
-
+            <Helmet><title>Contact Us || Bistro Boss Restaurant</title></Helmet>
             {/* --------------Banner Starts Here----------------- */}
             <div>
                 <div className="banner-img">

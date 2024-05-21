@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import { AuthContext } from '../Account/Provider/AuthProvider';
 
 const Dashboard = () => {
+    const { user } = useContext(AuthContext);
     const isAdmin = false;
     const isSeller = false;
     return (
         <div>
+            <Helmet><title>Dashboard || Bistro Boss  Restaurant</title></Helmet>
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
@@ -16,19 +20,23 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 min-h-full bg-yellow-600 text-base-content">
                         {
-                            isAdmin ?
-                                <>
-                                    <NavLink to="/dashboard/admin"><i className="fa-solid fa-user me-2"></i>Manage Users</NavLink>
-                                </> :
-                                isSeller ?
-                                    <>
-                                        <NavLink to="/dashboard/addFood"><i class="fa-solid fa-circle-plus me-2"></i>Add Food</NavLink>
-                                        <NavLink to="/dashboard/addedFoodHistory"><i className="fa-solid fa-shop me-2"></i>Added Food History</NavLink>
-                                    </> :
-                                    <>
-                                        <NavLink to="/dashboard/myCart"><i className="fa-solid fa-cart-shopping me-2"></i>My Cart</NavLink>
-                                        <NavLink to="/dashboard/purchaseHistory"><i className="fa-solid fa-wallet me-2"></i>Purchase History</NavLink>
-                                    </>
+                            isAdmin && !isSeller ?
+
+                                (<NavLink to="/dashboard/admin"><i className="fa-solid fa-user me-2"></i>Manage Users</NavLink>)
+                                :
+                                isSeller && isAdmin ?
+                                    (
+                                        <>
+                                            <NavLink to="/dashboard/addFood"><i class="fa-solid fa-circle-plus me-2"></i>Add Food</NavLink>
+                                            <NavLink to="/dashboard/addedFoodHistory"><i className="fa-solid fa-shop me-2"></i>Added Food History</NavLink>
+                                        </>
+                                    ) :
+                                    (
+                                        <>
+                                            <NavLink to="/dashboard/myCart"><i className="fa-solid fa-cart-shopping me-2"></i>My Cart</NavLink>
+                                            <NavLink to="/dashboard/purchaseHistory"><i className="fa-solid fa-wallet me-2"></i>Purchase History</NavLink>
+                                        </>
+                                    )
                         }
 
 

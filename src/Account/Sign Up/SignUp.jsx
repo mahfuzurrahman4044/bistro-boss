@@ -51,7 +51,7 @@ const SignUp = () => {
   return (
     <div>
       <Helmet>
-        <title>Sign Up || Bistro Boss Restaurant</title>{" "}
+        <title>Sign up || Bistro Boss Restaurant</title>{" "}
       </Helmet>
       <div className="hero min-h-screen pt-28">
         <div className="hero-content flex-col lg:flex-row-reverse">
