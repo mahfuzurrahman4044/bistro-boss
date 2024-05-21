@@ -143,12 +143,12 @@ const SignUp = () => {
                   </span>
                 )}
                 <label className="label">
-                  <a href="/login" className="label-text-alt link link-hover">Already have an account? Please login</a>
+                  <a href="/login" className="label-text-alt link link-hover">Already have an account? Please log in</a>
                 </label>
               </div>
               <p className="text-red-600 text-center">{error}</p>
               <div className="form-control mt-6">
-                <button className="btn btn-ghost border-amber-700 text-yellow-600" type="submit">Sign Up</button>
+                <button className="btn btn-ghost border-amber-700 text-yellow-600" type="submit">Sign up</button>
               </div>
 
             </form>

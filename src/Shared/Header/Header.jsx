@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import icon from "../../assets/icon/Bistro Boss Our Shop Icon.png";
 import ProfileIcon from "../../assets/icon/Profile.jpeg";
 import { useContext, useState } from "react";
@@ -14,7 +14,7 @@ const Header = () => {
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Logged Out",
+      title: "Logged out",
       showConfirmButton: false,
       timer: 1500
     });
@@ -58,26 +58,21 @@ const Header = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-opacity-20 bg-black rounded-box w-52"
             >
               <li>
-                <Link to="/">Home</Link>
+                <NavLink to="/">Home</NavLink>
               </li>
               <li>
-                <Link to="/menu">Menu</Link>
+                <NavLink to="/menu">Menu</NavLink>
               </li>
               <li>
-                <Link to="/order">
+                <NavLink to="/order">
                   Order
-                  <img
-                    className="h-5 w-5"
-                    src={icon}
-                    alt="Bistro Boss Our Shop Icon"
-                  />
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
               <li>
-                <Link to="/contactUs">Contact Us</Link>
+                <NavLink to="/contactUs">Contact Us</NavLink>
               </li>
               <li>
                 {
@@ -99,14 +94,14 @@ const Header = () => {
                           </li>
                           <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
                             <Link onClick={closeProfileMenu && handleLogOut} to="/">
-                              Log Out
+                              Log out
                             </Link>
                           </li>
                         </ul>
                       )}
                     </li></div>
                     : <li>
-                      <Link to="/login">Login</Link>
+                      <NavLink to="/login">Log in</NavLink>
                     </li>
                 }
               </li>
@@ -123,34 +118,33 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex justify-center">
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/menu">Menu</Link>
+              <NavLink to="/menu">Menu</NavLink>
             </li>
             <li>
-              <Link to="/order">
+              <NavLink to="/order">
                 Order
 
-              </Link>
+              </NavLink>
             </li>
             {
               user ?
                 <li>
-                  <Link to="/dashboard">Dashboard</Link>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
                 </li>
                 :
                 <></>
             }
             <li>
-              <Link to="/contactUs">Contact Us</Link>
+              <NavLink to="/contactUs">Contact Us</NavLink>
             </li>
           </ul>
         </div>
 
         <div className="navbar-end hidden lg:block ">
           <ul className="menu menu-horizontal px-1 flex justify-end items-center">
-
             <li>
               {
                 user ?
@@ -172,18 +166,17 @@ const Header = () => {
                           </li>
                           <li className="px-4 py-2 hover:border border-amber-700 rounded-md">
                             <Link onClick={closeProfileMenu && handleLogOut} to="/">
-                              Log Out
+                              Log out
                             </Link>
                           </li>
                         </ul>
                       )}
                     </li></div>
                   : <li>
-                    <Link className="btn btn-ghost border-amber-700" to="/login">Login</Link>
+                    <NavLink className="btn btn-ghost border-amber-700" to="/login">Log in</NavLink>
                   </li>
               }
             </li>
-
           </ul>
         </div>
       </div>{" "}

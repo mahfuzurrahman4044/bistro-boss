@@ -30,7 +30,7 @@ const Login = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Login Successful",
+          title: "Log in successful",
           showConfirmButton: false,
           timer: 1500,
           customClass: {
@@ -41,7 +41,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error)
-        setError("Try Again")
+        setError("Try again")
       })
 
 
@@ -51,7 +51,19 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         const loggedUser = res.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Log in successful",
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            icon: 'swal2-icon-success-custom'
+          }
+        });
+        navigate(from, { replace: true })
       })
+
   }
   return (
     <div>
@@ -75,12 +87,12 @@ const Login = () => {
                 </label>
                 <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                 <label className="label">
-                  <Link to="/signUp" className="label-text-alt link link-hover">New here? Please Sign Up</Link>
+                  <Link to="/signUp" className="label-text-alt link link-hover">New here? Please sign up</Link>
                 </label>
               </div>
               <p className="text-red-600 text-center">{error}</p>
               <div className="form-control mt-6">
-                <button className="btn btn-ghost border-amber-700 text-yellow-600">Login</button>
+                <button className="btn btn-ghost border-amber-700 text-yellow-600">Log in</button>
               </div>
               <div className="divider">OR</div>
               <div onClick={handleGoogleSignIn} className="text-center btn btn-ghost border-amber-700 text-yellow-600"><i className="fa-brands fa-google"></i></div>

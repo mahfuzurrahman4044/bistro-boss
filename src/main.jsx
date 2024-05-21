@@ -18,7 +18,12 @@ import Menu from "./Our Menu/Menu";
 import Order from "./Our Shop/Order";
 import AuthProvider from "./Account/Provider/AuthProvider";
 import PrivateRoute from "./Account/Private Route/PrivateRoute";
-import Buyer from "./Dashboard/Buyer/Buyer";
+import Dashboard from "./Dashboard/Dashboard";
+import PurchaseHistory from "./Dashboard/Buyer/Purchase History/PurchaseHistory";
+import MyCart from "./Dashboard/Buyer/My Cart/MyCart";
+import AddFood from "./Dashboard/Seller/Add Food/AddFood";
+import AddedFoodHistory from "./Dashboard/Seller/Added Food History/AddedFoodHistory";
+import Admin from "./Dashboard/Seller/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -38,11 +43,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Order></Order></PrivateRoute>,
       },
       {
-        path: "/dashboard",
-        element: <PrivateRoute><Buyer></Buyer></PrivateRoute>,
-      },
-
-      {
         path: "/signUp",
         element: <SignUp></SignUp>,
       },
@@ -60,6 +60,35 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/dashboard/myCart",
+        element: <MyCart></MyCart>
+      },
+      {
+        path: "/dashboard/purchaseHistory",
+        element: <PurchaseHistory></PurchaseHistory>
+      },
+      {
+        path: "/dashboard/addFood",
+        element: <AddFood></AddFood>
+      },
+      {
+        path: "/dashboard/addedFoodHistory",
+        element: <AddedFoodHistory></AddedFoodHistory>
+      },
+      {
+        path: "/dashboard/admin",
+        element: <Admin></Admin>
+      }
+    ]
+  }
+
+
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
