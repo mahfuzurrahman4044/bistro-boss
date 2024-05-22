@@ -110,7 +110,8 @@ const Header = () => {
           <div>
             <div className="font-serif text-center">
               <Link to="/">BISTRO BOSS <br />
-                <span>Restaurant</span></Link>
+                <span>Restaurant</span>
+              </Link>
             </div>
           </div>
         </div>

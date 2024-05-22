@@ -23,7 +23,8 @@ import PurchaseHistory from "./Dashboard/Buyer/Purchase History/PurchaseHistory"
 import MyCart from "./Dashboard/Buyer/My Cart/MyCart";
 import AddFood from "./Dashboard/Seller/Add Food/AddFood";
 import AddedFoodHistory from "./Dashboard/Seller/Added Food History/AddedFoodHistory";
-import Admin from "./Dashboard/Seller/Admin/Admin";
+import Admin from "./Dashboard/Admin/Admin";
+import NotFound from "./404/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -62,29 +63,33 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/dashboard/myCart",
-        element: <MyCart></MyCart>
+        element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
       },
       {
         path: "/dashboard/purchaseHistory",
-        element: <PurchaseHistory></PurchaseHistory>
+        element: <PrivateRoute><PurchaseHistory></PurchaseHistory></PrivateRoute>
       },
       {
         path: "/dashboard/addFood",
-        element: <AddFood></AddFood>
+        element: <PrivateRoute><AddFood></AddFood></PrivateRoute>
       },
       {
         path: "/dashboard/addedFoodHistory",
-        element: <AddedFoodHistory></AddedFoodHistory>
+        element: <PrivateRoute><AddedFoodHistory></AddedFoodHistory></PrivateRoute>
       },
       {
         path: "/dashboard/admin",
-        element: <Admin></Admin>
+        element: <PrivateRoute><Admin></Admin></PrivateRoute>
       }
     ]
+  },
+  {
+    path:"*",
+    element:<NotFound></NotFound>
   }
 
 

@@ -51,6 +51,14 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         const loggedUser = res.user;
+        const userInfo = { photoURL: loggedUser.photoURL, displayName: loggedUser.displayName, email: loggedUser.email }
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify(userInfo)
+        })
         Swal.fire({
           position: "center",
           icon: "success",

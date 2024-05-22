@@ -26,6 +26,14 @@ const SignUp = () => {
         .then((result) => {
           const createdUser = result.user;
           console.log(createdUser);
+          const userInfo = { photoURL: data.photo, displayName: data.name, email: data.email }
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+          })
           setError("")
           Swal.fire({
             position: "center",
@@ -36,16 +44,15 @@ const SignUp = () => {
           });
           navigate("/")
           updateUser(data.name, data.photo)
-            .then(() => {
-              console.log("User has been updated")
-              reset()
-            })
+          // .then(() => {
+          //   console.log("User has been updated")
+          // })
 
-            .catch((error) => {
-              console.log(error.message)
-              setError("")
-            });
         })
+        .catch((error) => {
+          console.log(error.message)
+          setError(error.message)
+        });
     }
   };
   return (

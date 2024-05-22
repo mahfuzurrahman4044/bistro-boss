@@ -25,14 +25,16 @@ const MyCart = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        if (data.deletedCount > 0) {
+                        if (data.message === "Item deleted successfully") {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
+                                position: "center",
+                                icon: "success",
+                                title: "Item has been deleted",
+                                showConfirmButton: false,
+                                timer: 1500
                             });
-                            refetch()
                         }
+                        refetch()
                     })
 
             }
@@ -42,7 +44,7 @@ const MyCart = () => {
         <div>
             <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>
             <div>
-                <SectionTitle title={"My Cart"}></SectionTitle>
+                <SectionTitle title={"My Cart"} subtitle={"---WANNA ADD MORE?---"}></SectionTitle>
             </div>
             <div className='font-serif font-semibold flex justify-around items-center'>
                 <h2 className='text-xl'>Total Items: {carts.length}</h2>
@@ -56,8 +58,8 @@ const MyCart = () => {
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
-                        <thead className=''>
-                            <tr className='text-xl bg-base-100'>
+                        <thead className='bg-yellow-600'>
+                            <tr className='text-xl p-2 text-center'>
                                 <th>#</th>
                                 <th>Item</th>
                                 <th>Price</th>
@@ -84,7 +86,7 @@ const MyCart = () => {
                                         <td>
                                             {cart.price}
                                         </td>
-                                        <td className='btn btn-danger border border-amber-700' onClick={() => handleDelete(cart._id)}>Delete</td>
+                                        <td className='btn btn-danger border border-amber-700 mt-2' onClick={() => handleDelete(cart._id)}><i className="fa-solid fa-trash"></i></td>
                                     </tr>)
                             }
                         </tbody>
