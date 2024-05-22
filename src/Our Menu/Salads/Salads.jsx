@@ -6,10 +6,10 @@ import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 const Salads = () => {
   const [isLoading, menus]=UseMenus()
 
-  console.log(menus);
+  // console.log(menus);
 
   const salads = menus.filter((menu) => menu.category === "salad");
-  console.log(salads);
+  // console.log(salads);
 
   return (
     <div className="mt-16">

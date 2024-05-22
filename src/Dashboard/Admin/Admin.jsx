@@ -1,17 +1,54 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import UseUsers from '../../UseQuery/UseUsers/UseUsers';
+import Swal from 'sweetalert2';
 
 const Admin = () => {
     const [isLoading, users, refetch] = UseUsers();
     console.log(users);
 
-    const handleMakeAdmin = (userId) => {
-        console.log(userId);
+    const handleMakeAdmin = (user) => {
+        console.log(user);
+
+        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+            method: "PATCH"
+        })
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `${user.displayName} is admin now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                refetch()
+            })
     };
 
-    const handleMakeSeller = (userId) => {
-        console.log(userId);
+    const handleMakeSeller = (user) => {
+        console.log(user);
+
+        fetch(`http://localhost:5000/users/seller/${user._id}`, {
+            method: "PATCH"
+        })
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `${user.displayName} is seller now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+                refetch()
+            })
     };
 
     return (
@@ -59,19 +96,19 @@ const Admin = () => {
                                             {
                                                 user.role === "admin" ?
                                                     <>
-                                                        <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeSeller(user._id)}>
+                                                        <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeSeller(user)}>
                                                             <i className="fa-solid fa-user-tag"></i>
                                                         </div>
                                                     </> : user.role === "seller" ?
                                                         <>
-                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeAdmin(user._id)}>
+                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeAdmin(user)}>
                                                                 <i className="fa-solid fa-user-plus"></i>
                                                             </div>
                                                         </> : <>
-                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeAdmin(user._id)}>
+                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeAdmin(user)}>
                                                                 <i className="fa-solid fa-user-plus"></i>
                                                             </div>
-                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeSeller(user._id)}>
+                                                            <div className='btn btn-danger border border-amber-700 mx-1' onClick={() => handleMakeSeller(user)}>
                                                                 <i className="fa-solid fa-user-tag"></i>
                                                             </div></>
                                             }

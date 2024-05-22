@@ -6,10 +6,10 @@ import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 const Soups = () => {
   const [isLoading, menus] = UseMenus()
 
-  console.log(menus);
+  // console.log(menus);
 
   const soup = menus.filter((menu) => menu.category === "soup");
-  console.log(soup);
+  // console.log(soup);
   return (
     <div className="mt-16">
       <div>

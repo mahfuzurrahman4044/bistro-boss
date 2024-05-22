@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 const MyCart = () => {
     const [isLoading, carts, refetch] = UseCarts()
     console.log(carts)
+
     const total = carts.reduce((sum, item) => item.price + sum, 0)
 
     const handleDelete = (id) => {
@@ -40,6 +41,8 @@ const MyCart = () => {
             }
         });
     }
+
+
     return (
         <div>
             <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>

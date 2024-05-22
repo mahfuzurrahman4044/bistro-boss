@@ -6,7 +6,7 @@ const TodaysOffer = () => {
   const [isLoading, menus]=UseMenus()
 
   const offer = menus.filter((menu) => menu.category === "offered");
-  console.log(offer);
+  // console.log(offer);
 
   return (
     <div>

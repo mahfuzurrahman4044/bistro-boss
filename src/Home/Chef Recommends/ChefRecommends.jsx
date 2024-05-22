@@ -9,7 +9,7 @@ const ChefRecommends = () => {
   }
 
   const chefRecommends = menus.filter((menu) => menu?.recommend === "yes");
-  console.log(chefRecommends);
+  // console.log(chefRecommends);
   return (
     <div>
       <div>

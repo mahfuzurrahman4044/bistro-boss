@@ -10,7 +10,7 @@ const PopularMenu = () => {
   }
 
   const popularMenus = menus.filter((menu) => menu.category === "popular");
-  console.log(popularMenus);
+  // console.log(popularMenus);
 
   return (
     <div>

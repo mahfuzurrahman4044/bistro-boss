@@ -6,7 +6,7 @@ import img from "../assets/others/cupcake.gif"
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
-    const isAdmin = true;
+    const isAdmin = false;
     const isSeller = false;
     return (
         <div>

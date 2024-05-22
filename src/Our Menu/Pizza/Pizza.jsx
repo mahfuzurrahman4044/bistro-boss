@@ -6,10 +6,10 @@ import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 const Pizza = () => {
   const [isLoading, menus] = UseMenus()
 
-  console.log(menus);
+  // console.log(menus);
 
   const pizza = menus.filter((menu) => menu.category === "pizza");
-  console.log(pizza);
+  // console.log(pizza);
   return (
     <div>
       <div>

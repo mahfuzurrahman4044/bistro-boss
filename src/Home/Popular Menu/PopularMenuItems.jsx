@@ -1,5 +1,5 @@
 const PopularMenuItems = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const { name, image, price, recipe } = item;
   return (
     <div className="flex justify-around items-center">
