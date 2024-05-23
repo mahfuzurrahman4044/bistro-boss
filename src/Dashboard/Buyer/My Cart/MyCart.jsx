@@ -3,6 +3,7 @@ import UseCarts from '../../../UseQuery/Use Carts/UseCarts';
 import { Helmet } from 'react-helmet';
 import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
+import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
 
 const MyCart = () => {
     const [isLoading, carts, refetch] = UseCarts()
@@ -47,7 +48,7 @@ const MyCart = () => {
         <div>
             <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>
             <div>
-                <SectionTitle title={"My Cart"} subtitle={"---WANNA ADD MORE---"}></SectionTitle>
+                <DashboardSectionTitle title={"WANNA ADD MORE"} subtitle={"---My Cart---"}></DashboardSectionTitle>
             </div>
             <div className='font-serif font-semibold flex justify-around items-center'>
                 <h2 className='text-xl'>Total Items: {carts.length}</h2>

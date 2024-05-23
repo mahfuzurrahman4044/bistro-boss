@@ -8,6 +8,7 @@ import img from "../assets/others/cupcake.gif";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
+    const location = useLocation()
 
     const [isAdminLoading, isAdmin] = UseAdmin();
     console.log(isAdmin);
@@ -26,14 +27,14 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <Outlet></Outlet>
-                    {/* {location.pathname === '/dashboard' && (
+                    {location.pathname === '/dashboard' && (
                         <>
                             <div className='banner-img w-full'><img src={img} alt="" /></div>
                             <div className='text-center text-2xl font-semibold font-serif relative bottom-96'>
                                 <h2>Welcome to Bistro Boss<br />Restaurant</h2>
                             </div>
                         </>
-                    )} */}
+                    )}
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
                 <div className="drawer-side">

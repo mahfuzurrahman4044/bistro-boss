@@ -134,7 +134,7 @@ const ContactUs = () => {
                                     ></textarea>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Send</button>
+                                    <button className="btn border border-amber-700">Send</button>
                                 </div>
                             </form>
                         </div>
