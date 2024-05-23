@@ -1,6 +1,6 @@
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Menus from "../../Shared/Menus/Menus";
-import UseMenus from "../../UseQuery/UseMenus/UseMenus";
+import UseMenus from "../../UseQuery/Use Menus/UseMenus";
 
 const TodaysOffer = () => {
   const [isLoading, menus]=UseMenus()

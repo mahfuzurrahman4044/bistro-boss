@@ -1,5 +1,5 @@
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-import UseMenus from "../../UseQuery/UseMenus/UseMenus";
+import UseMenus from "../../UseQuery/Use Menus/UseMenus";
 
 const ChefRecommends = () => {
   const [isLoading, menus] = UseMenus();

@@ -1,7 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import TabItems from "./TabItems";
-import UseMenus from "../../UseQuery/UseMenus/UseMenus";
+import UseMenus from "../../UseQuery/Use Menus/UseMenus";
 
 const OrderTabs = () => {
   const [isLoading, menus] = UseMenus([]);

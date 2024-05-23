@@ -1,6 +1,6 @@
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
+import UseMenus from "../../UseQuery/Use Menus/UseMenus";
 import MenuItems from "./PopularMenuItems";
-import UseMenus from "../../UseQuery/UseMenus/UseMenus";
 
 const PopularMenu = () => {
   const [isLoading, menus] = UseMenus();

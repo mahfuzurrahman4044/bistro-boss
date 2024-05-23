@@ -1,7 +1,7 @@
 import SectionBanner from "../../Shared/Section Banner/SectionBanner";
 import img from "../../assets/home/chef-service.jpg";
 import Menus from "../../Shared/Menus/Menus";
-import UseMenus from "../../UseQuery/UseMenus/UseMenus";
+import UseMenus from "../../UseQuery/Use Menus/UseMenus";
 
 const Pizza = () => {
   const [isLoading, menus] = UseMenus()

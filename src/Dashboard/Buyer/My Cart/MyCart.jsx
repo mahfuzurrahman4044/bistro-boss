@@ -47,7 +47,7 @@ const MyCart = () => {
         <div>
             <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>
             <div>
-                <SectionTitle title={"My Cart"} subtitle={"---WANNA ADD MORE?---"}></SectionTitle>
+                <SectionTitle title={"My Cart"} subtitle={"---WANNA ADD MORE---"}></SectionTitle>
             </div>
             <div className='font-serif font-semibold flex justify-around items-center'>
                 <h2 className='text-xl'>Total Items: {carts.length}</h2>

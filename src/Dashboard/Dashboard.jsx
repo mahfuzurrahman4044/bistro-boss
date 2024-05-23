@@ -1,13 +1,24 @@
 import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { AuthContext } from '../Account/Provider/AuthProvider';
-import img from "../assets/others/cupcake.gif"
+import UseAdmin from '../UseQuery/Use Admin/UseAdmin';
+import UseSeller from '../UseQuery/Use Seller/UseSeller';
+import img from "../assets/others/cupcake.gif";
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext);
-    const isAdmin = false;
-    const isSeller = false;
+
+    const [isAdminLoading, isAdmin] = UseAdmin();
+    console.log(isAdmin);
+
+    const [isSellerLoading, isSeller] = UseSeller();
+    console.log(isSeller)
+
+    // if (isAdminLoading || isSellerLoading) {
+    //     return <div>Loading...</div>;
+    // }
+
     return (
         <div>
             <Helmet><title>Dashboard || Bistro Boss  Restaurant</title></Helmet>
@@ -15,10 +26,14 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col items-center justify-center">
                     <Outlet></Outlet>
-                    {/* <div className='banner-img w-full'><img src={img} alt="" /></div>
-                    <div className='text-center text-2xl font-semibold font-serif relative bottom-96'>
-                        <h2>Welcome to Bistro Boss<br />Restaurant</h2>
-                    </div> */}
+                    {/* {location.pathname === '/dashboard' && (
+                        <>
+                            <div className='banner-img w-full'><img src={img} alt="" /></div>
+                            <div className='text-center text-2xl font-semibold font-serif relative bottom-96'>
+                                <h2>Welcome to Bistro Boss<br />Restaurant</h2>
+                            </div>
+                        </>
+                    )} */}
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                 </div>
                 <div className="drawer-side">
@@ -36,7 +51,7 @@ const Dashboard = () => {
 
                                 (<NavLink to="/dashboard/admin"><i className="fa-solid fa-user me-2"></i>Manage Users</NavLink>)
                                 :
-                                isSeller && isAdmin ?
+                                isSeller && !isAdmin ?
                                     (
                                         <>
                                             <NavLink to="/dashboard/addFood"><i class="fa-solid fa-circle-plus me-2"></i>Add Food</NavLink>

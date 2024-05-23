@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import UseUsers from '../../UseQuery/UseUsers/UseUsers';
 import Swal from 'sweetalert2';
+import UseUsers from '../../UseQuery/Use Users/UseUsers';
 
 const Admin = () => {
     const [isLoading, users, refetch] = UseUsers();
