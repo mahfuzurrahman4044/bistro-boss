@@ -54,7 +54,7 @@ const Dashboard = () => {
                                 isSeller && !isAdmin ?
                                     (
                                         <>
-                                            <NavLink to="/dashboard/addFood"><i class="fa-solid fa-circle-plus me-2"></i>Add Food</NavLink>
+                                            <NavLink to="/dashboard/addFood"><i class="fa-solid fa-bowl-food me-2"></i>Add Food</NavLink>
                                             <NavLink to="/dashboard/addedFoodHistory"><i className="fa-solid fa-shop me-2"></i>Added Food History</NavLink>
                                         </>
                                     ) :

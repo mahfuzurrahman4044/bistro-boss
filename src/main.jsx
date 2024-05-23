@@ -25,6 +25,7 @@ import AddFood from "./Dashboard/Seller/Add Food/AddFood";
 import AddedFoodHistory from "./Dashboard/Seller/Added Food History/AddedFoodHistory";
 import Admin from "./Dashboard/Admin/Admin";
 import NotFound from "./404/NotFound";
+import AdminRoute from "./Account/Admin Route/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -83,13 +84,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/admin",
-        element: <PrivateRoute><Admin></Admin></PrivateRoute>
+        element: <AdminRoute><Admin></Admin></AdminRoute>
       }
     ]
   },
   {
-    path:"*",
-    element:<NotFound></NotFound>
+    path: "*",
+    element: <NotFound></NotFound>
   }
 
 
