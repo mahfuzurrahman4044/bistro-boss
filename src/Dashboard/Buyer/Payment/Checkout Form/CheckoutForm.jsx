@@ -79,7 +79,7 @@ const CheckoutForm = ({ carts, price }) => {
                 // items: carts.map(cart => cart.name)
             }
 
-            axiosSecure.post("/purchaseHistory", { paymentInfo })
+            axiosSecure.post("/purchaseHistory", paymentInfo)
                 .then(res => {
                     console.log(res.data)
 
