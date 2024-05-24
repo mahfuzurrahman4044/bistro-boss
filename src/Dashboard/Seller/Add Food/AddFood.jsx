@@ -1,44 +1,79 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
 import { useForm } from 'react-hook-form';
+import UseAxiosSecure from '../../../Account/Axios Secure/UseAxiosSecure';
+import Swal from 'sweetalert2';
 
 const AddFood = () => {
-    const {
-        register,
-        handleSubmit,
-        reset,
-    } = useForm()
+    const [axiosSecure] = UseAxiosSecure();
+    const imageHostingToken = "313da3e4143f5ce0645db9ae759d6a5b";
+    const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`;
 
-    const onSubmit = (data) => {
-        const foodDetails = {
-            name: data.recipeName,
-            category: data.category,
-            price: data.price,
-            recipe: data.recipeDetails,
-            image: data.file
+    const { register, handleSubmit, reset } = useForm();
+
+    const onSubmit = async (data) => {
+
+        const formData = new FormData();
+        formData.append("image", data.file[0]);
+
+        try {
+            const imgResponse = await fetch(imageHostingUrl, {
+                method: "POST",
+                body: formData
+            }).then(res => res.json());
+
+            console.log(imgResponse)
+
+            if (imgResponse.success) {
+
+                const foodDetails = {
+                    name: data.recipeName,
+                    category: data.category,
+                    price: data.price,
+                    recipe: data.recipeDetails,
+                    image: imgResponse.data.url
+                };
+
+                // console.log(foodDetails);
+
+                axiosSecure.post("menus", foodDetails)
+                    .then(data => {
+                        console.log(data.data)
+                        if (data.data.insertedId) {
+                            Swal.fire({
+                                position: "center",
+                                icon: "success",
+                                title: "Item has been added",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            reset();
+                        }
+                    })
+
+
+            }
+
+        } catch (error) {
+            console.error('Error uploading image:', error);
         }
-        console.log(foodDetails)
-    }
+    };
 
     return (
         <div>
-            <Helmet><title>Add Food || Dashboard || Bistro Boss  Restaurant</title></Helmet>
+            <Helmet><title>Add Food || Dashboard || Bistro Boss Restaurant</title></Helmet>
             <div>
-                <DashboardSectionTitle title={"ADD AN ITEM"} subtitle={"---What's new---"}></DashboardSectionTitle>
+                <DashboardSectionTitle title={"ADD AN ITEM"} subtitle={"---What's new---"} />
             </div>
 
-            {/* ----------------------Form--------------------- */}
-
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full bg-slate-100 p-6 my-10 rounded-lg' action="">
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full bg-slate-100 p-6 my-10 rounded-lg'>
                 <div>
                     <label className="form-control w-full max-w-xs">
                         <div className="label">
                             <span className="label-text">Recipe Name</span>
                         </div>
-                        <input type="text" {...register("recipeName")} placeholder="recipe name" className="input border border-amber-700 w-full max-w-xs" />
-
+                        <input required type="text" {...register("recipeName")} placeholder="recipe name" className="input border border-amber-700 w-full max-w-xs" />
                     </label>
                 </div>
                 <div className='flex justify-between items-center'>
@@ -46,12 +81,12 @@ const AddFood = () => {
                         <div className="label">
                             <span className="label-text">Category</span>
                         </div>
-                        <select {...register("category")} className="select border border-amber-700 w-full max-w-xs">
-                            <option>Salad</option>
-                            <option>Pizza</option>
-                            <option>Soup</option>
-                            <option>Desert</option>
-                            <option>Drinks</option>
+                        <select required {...register("category")} className="select border border-amber-700 w-full max-w-xs">
+                            <option>salad</option>
+                            <option>pizza</option>
+                            <option>soup</option>
+                            <option>dessert</option>
+                            <option>drinks</option>
                         </select>
                     </div>
 
@@ -60,8 +95,7 @@ const AddFood = () => {
                             <div className="label">
                                 <span className="label-text">Price</span>
                             </div>
-                            <input type="text" {...register("price")} placeholder="price" className="input border border-amber-700 w-full max-w-xs" />
-
+                            <input required type="number" {...register("price")} placeholder="price" className="input border border-amber-700 w-full max-w-xs" />
                         </label>
                     </div>
                 </div>
@@ -73,13 +107,12 @@ const AddFood = () => {
                     <textarea {...register("recipeDetails")} className="textarea border border-amber-700 w-full " placeholder="recipe details..."></textarea>
                 </div>
 
-                <div className=''>
-                    <input {...register("file")} type="file" className="file-input border border-amber-700 w-full max-w-xs" />
+                <div>
+                    <input required {...register("file")} type="file" className="file-input border border-amber-700 w-full max-w-xs" />
                 </div>
                 <div className='text-center my-2'>
-                    <button type='file' className='btn border border-amber-700'>Add Item</button>
+                    <button type='submit' className='btn border border-amber-700'>Add Item</button>
                 </div>
-
             </form>
         </div>
     );

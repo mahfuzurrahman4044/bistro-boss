@@ -50,7 +50,7 @@ const MyCart = () => {
             <div>
                 <DashboardSectionTitle title={"WANNA ADD MORE"} subtitle={"---My Cart---"}></DashboardSectionTitle>
             </div>
-            <div className='font-serif font-semibold flex justify-around items-center'>
+            <div className='font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Items: {carts.length}</h2>
                 <h2 className='text-xl'>Total Price: {total}</h2>
                 <button className='btn btn-ghost border border-amber-700'>Pay</button>
@@ -58,7 +58,7 @@ const MyCart = () => {
 
 
             {/* --------------------------Table----------------- */}
-            <div className='mt-4'>
+            <div className=''>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}

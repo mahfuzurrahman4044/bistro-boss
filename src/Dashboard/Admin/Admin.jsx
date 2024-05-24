@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 import UseUsers from '../../UseQuery/Use Users/UseUsers';
+import DashboardSectionTitle from '../../Shared/Dashboard Section Title/DashboardSectionTitle';
 
 const Admin = () => {
     const [isLoading, users, refetch] = UseUsers();
@@ -55,13 +56,17 @@ const Admin = () => {
         <div>
             <Helmet><title>Admin || Dashboard || Bistro Boss Restaurant</title></Helmet>
 
-            <div className='font-serif font-semibold flex justify-around items-center'>
+            <div>
+                <DashboardSectionTitle title={"MANAGE ALL USERS"} subtitle={"---How many---"}></DashboardSectionTitle>
+            </div>
+
+            <div className='font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Users: {users.length}</h2>
             </div>
 
             {/* ------------------Table---------------------- */}
 
-            <div className='mt-4'>
+            <div className=''>
                 <div className="overflow-x-auto">
                     <table className="table">
                         <thead className='bg-yellow-600'>
