@@ -64,7 +64,7 @@ const AddedFoodHistory = () => {
 
             <div className='font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Items: {addedFoodHistory.length}</h2>
-                <h2 className='text-xl'>Total Price: {total}</h2>
+                <h2 className='text-xl'>Total Price: {"$"+total}</h2>
             </div>
 
             {/* --------------------------Table----------------------- */}

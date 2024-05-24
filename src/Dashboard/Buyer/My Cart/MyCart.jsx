@@ -1,13 +1,13 @@
 import React from 'react';
 import UseCarts from '../../../UseQuery/Use Carts/UseCarts';
 import { Helmet } from 'react-helmet';
-import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
 import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
+import { Link } from 'react-router-dom';
 
 const MyCart = () => {
     const [isLoading, carts, refetch] = UseCarts()
-    console.log(carts)
+    // console.log(carts)
 
     const total = carts.reduce((sum, item) => item.price + sum, 0)
 
@@ -52,8 +52,8 @@ const MyCart = () => {
             </div>
             <div className='font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Items: {carts.length}</h2>
-                <h2 className='text-xl'>Total Price: {total}</h2>
-                <button className='btn btn-ghost border border-amber-700'>Pay</button>
+                <h2 className='text-xl'>Total Price: {"$"+total}</h2>
+                <Link to="/dashboard/payment" className='btn btn-ghost border border-amber-700'>Pay</Link>
             </div>
 
 
@@ -88,7 +88,7 @@ const MyCart = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            {"$"+cart.price}
+                                            {"$" + cart.price}
                                         </td>
                                         <td className='btn btn-danger border border-amber-700 mt-2' onClick={() => handleDelete(cart._id)}><i className="fa-solid fa-trash"></i></td>
                                     </tr>)

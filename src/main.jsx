@@ -28,6 +28,7 @@ import AdminRoute from "./Account/Admin Route/AdminRoute";
 import SellerRoute from "./Account/Seller Route/SellerRoute";
 import Admin from "./Dashboard/Admin/Admin/Admin";
 import AllFoods from "./Dashboard/Admin/All Foods/AllFoods";
+import Payment from "./Dashboard/Buyer/Payment/Payment Gateway/PaymentGateway";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/myCart",
         element: <PrivateRoute><MyCart></MyCart></PrivateRoute>
+      },
+      {
+        path: "/dashboard/payment",
+        element: <PrivateRoute><Payment></Payment></PrivateRoute>
       },
       {
         path: "/dashboard/purchaseHistory",
