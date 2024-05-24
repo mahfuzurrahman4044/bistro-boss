@@ -23,10 +23,11 @@ import PurchaseHistory from "./Dashboard/Buyer/Purchase History/PurchaseHistory"
 import MyCart from "./Dashboard/Buyer/My Cart/MyCart";
 import AddFood from "./Dashboard/Seller/Add Food/AddFood";
 import AddedFoodHistory from "./Dashboard/Seller/Added Food History/AddedFoodHistory";
-import Admin from "./Dashboard/Admin/Admin";
 import NotFound from "./404/NotFound";
 import AdminRoute from "./Account/Admin Route/AdminRoute";
 import SellerRoute from "./Account/Seller Route/SellerRoute";
+import Admin from "./Dashboard/Admin/Admin/Admin";
+import AllFoods from "./Dashboard/Admin/All Foods/AllFoods";
 
 const router = createBrowserRouter([
   {
@@ -84,8 +85,12 @@ const router = createBrowserRouter([
         element: <SellerRoute><AddedFoodHistory></AddedFoodHistory></SellerRoute>
       },
       {
-        path: "/dashboard/admin",
+        path: "/dashboard/manageUsers",
         element: <AdminRoute><Admin></Admin></AdminRoute>
+      },
+      {
+        path: "/dashboard/manageFoods",
+        element: <AdminRoute><AllFoods></AllFoods></AdminRoute>
       }
     ]
   },

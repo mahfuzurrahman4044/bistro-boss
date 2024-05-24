@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
-import UseUsers from '../../UseQuery/Use Users/UseUsers';
-import DashboardSectionTitle from '../../Shared/Dashboard Section Title/DashboardSectionTitle';
+import UseUsers from '../../../UseQuery/Use Users/UseUsers';
+import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
 
 const Admin = () => {
     const [isLoading, users, refetch] = UseUsers();
@@ -54,7 +54,7 @@ const Admin = () => {
 
     return (
         <div>
-            <Helmet><title>Admin || Dashboard || Bistro Boss Restaurant</title></Helmet>
+            <Helmet><title>All Users || Dashboard || Bistro Boss Restaurant</title></Helmet>
 
             <div>
                 <DashboardSectionTitle title={"MANAGE ALL USERS"} subtitle={"---How many---"}></DashboardSectionTitle>
@@ -71,7 +71,7 @@ const Admin = () => {
                     <table className="table">
                         <thead className='bg-yellow-600'>
                             <tr className='text-xl p-2 text-center'>
-                                <th>#</th>
+                                <th></th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>

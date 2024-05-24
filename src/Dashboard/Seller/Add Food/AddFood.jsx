@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
 import { useForm } from 'react-hook-form';
 import UseAxiosSecure from '../../../Account/Axios Secure/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../Account/Provider/AuthProvider';
 
 const AddFood = () => {
+    const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = UseAxiosSecure();
     const imageHostingToken = "313da3e4143f5ce0645db9ae759d6a5b";
     const imageHostingUrl = `https://api.imgbb.com/1/upload?key=${imageHostingToken}`;
@@ -28,6 +30,7 @@ const AddFood = () => {
             if (imgResponse.success) {
 
                 const foodDetails = {
+                    email: data.email,
                     name: data.recipeName,
                     category: data.category,
                     price: data.price,
@@ -71,6 +74,14 @@ const AddFood = () => {
                 <div>
                     <label className="form-control w-full max-w-xs">
                         <div className="label">
+                            <span className="label-text">Email</span>
+                        </div>
+                        <input type="email" {...register("email")} value={user?.email} className="input border border-amber-700 w-full max-w-xs" />
+                    </label>
+                </div>
+                <div>
+                    <label className="form-control w-full max-w-xs">
+                        <div className="label">
                             <span className="label-text">Recipe Name</span>
                         </div>
                         <input required type="text" {...register("recipeName")} placeholder="recipe name" className="input border border-amber-700 w-full max-w-xs" />
@@ -104,7 +115,7 @@ const AddFood = () => {
                     <div className="label">
                         <span className="label-text">Recipe Details</span>
                     </div>
-                    <textarea {...register("recipeDetails")} className="textarea border border-amber-700 w-full " placeholder="recipe details..."></textarea>
+                    <textarea {...register("recipeDetails")} maxLength={"100"} className="textarea border border-amber-700 w-full " placeholder="recipe details..."></textarea>
                 </div>
 
                 <div>

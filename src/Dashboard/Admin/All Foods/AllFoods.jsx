@@ -1,17 +1,21 @@
-import React from 'react';
-import UseCarts from '../../../UseQuery/Use Carts/UseCarts';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import SectionTitle from '../../../Shared/SectionTitle/SectionTitle';
-import Swal from 'sweetalert2';
 import DashboardSectionTitle from '../../../Shared/Dashboard Section Title/DashboardSectionTitle';
+import { AuthContext } from '../../../Account/Provider/AuthProvider';
+import UseAxiosSecure from '../../../Account/Axios Secure/UseAxiosSecure';
+import Swal from 'sweetalert2';
+import UseMenus from '../../../UseQuery/Use Menus/UseMenus';
 
-const MyCart = () => {
-    const [isLoading, carts, refetch] = UseCarts()
-    console.log(carts)
+const AllFoods = () => {
+    const [isLoading, menus, refetch] = UseMenus();
+    // console.log(addedFoodHistory)
 
-    const total = carts.reduce((sum, item) => item.price + sum, 0)
+    const { user, loading } = useContext(AuthContext)
+    const [axiosSecure] = UseAxiosSecure();
 
     const handleDelete = (id) => {
+        // console.log(id)
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -22,12 +26,10 @@ const MyCart = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteCart/${id}`, {
-                    method: "DELETE"
-                })
-                    .then(res => res.json())
+                axiosSecure.delete(`/menuDelete/${id}`)
                     .then(data => {
-                        if (data.message === "Item deleted successfully") {
+                        console.log(data.data)
+                        if (data.data.deletedCount > 0) {
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
@@ -35,29 +37,26 @@ const MyCart = () => {
                                 showConfirmButton: false,
                                 timer: 1500
                             });
+                            refetch();
                         }
-                        refetch()
                     })
-
             }
-        });
+        })
     }
 
 
     return (
         <div>
-            <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>
+            <Helmet><title>All Foods || Dashboard || Bistro Boss  Restaurant</title></Helmet>
             <div>
-                <DashboardSectionTitle title={"WANNA ADD MORE"} subtitle={"---My Cart---"}></DashboardSectionTitle>
+                <DashboardSectionTitle title={"MANAGE ALL ITEMS"} subtitle={"---Hurry Up!---"}></DashboardSectionTitle>
             </div>
+
             <div className='font-serif font-semibold flex justify-around items-center my-6'>
-                <h2 className='text-xl'>Total Items: {carts.length}</h2>
-                <h2 className='text-xl'>Total Price: {total}</h2>
-                <button className='btn btn-ghost border border-amber-700'>Pay</button>
+                <h2 className='text-xl'>Total Items: {menus.length}</h2>
             </div>
 
-
-            {/* --------------------------Table----------------- */}
+            {/* --------------------------Table----------------------- */}
             <div className=''>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -72,33 +71,34 @@ const MyCart = () => {
                         </thead>
                         <tbody>
                             {
-                                carts.map((cart, index) =>
-                                    <tr key={cart._id} className='text-center'>
+                                menus.map((menu, index) =>
+                                    <tr key={menu._id} className='text-center'>
                                         <td>{index + 1}</td>
                                         <td>
                                             <div className="flex items-center gap-3">
                                                 <div className="avatar">
                                                     <div className="mask mask-squircle w-12 h-12">
-                                                        <img src={cart.image} alt="Avatar Tailwind CSS Component" />
+                                                        <img src={menu.image} alt="Avatar Tailwind CSS Component" />
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <div className="font-bold">{cart.name}</div>
+                                                    <div className="font-bold">{menu.name}</div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            {"$"+cart.price}
+                                            {"$" + menu.price}
                                         </td>
-                                        <td className='btn btn-danger border border-amber-700 mt-2' onClick={() => handleDelete(cart._id)}><i className="fa-solid fa-trash"></i></td>
+                                        <td className='btn btn-danger border border-amber-700 mt-2' onClick={() => handleDelete(menu._id)}><i className="fa-solid fa-trash"></i></td>
                                     </tr>)
                             }
                         </tbody>
                     </table>
                 </div>
             </div>
+
         </div>
     );
 };
 
-export default MyCart;
+export default AllFoods;

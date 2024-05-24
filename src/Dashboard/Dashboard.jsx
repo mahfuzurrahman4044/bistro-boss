@@ -16,10 +16,6 @@ const Dashboard = () => {
     const [isSellerLoading, isSeller] = UseSeller();
     console.log(isSeller)
 
-    // if (isAdminLoading || isSellerLoading) {
-    //     return <div>Loading...</div>;
-    // }
-
     return (
         <div>
             <Helmet><title>Dashboard || Bistro Boss  Restaurant</title></Helmet>
@@ -50,7 +46,12 @@ const Dashboard = () => {
                         {
                             isAdmin && !isSeller ?
 
-                                (<NavLink to="/dashboard/admin"><i className="fa-solid fa-user me-2"></i>Manage Users</NavLink>)
+                                (
+                                    <>
+                                        <NavLink to="/dashboard/manageUsers"><i className="fa-solid fa-user me-2"></i>Manage Users</NavLink>
+                                        <NavLink to="/dashboard/manageFoods"><i className="fa-solid fa-user me-2"></i>Manage Foods</NavLink>
+                                    </>
+                                )
                                 :
                                 isSeller && !isAdmin ?
                                     (
