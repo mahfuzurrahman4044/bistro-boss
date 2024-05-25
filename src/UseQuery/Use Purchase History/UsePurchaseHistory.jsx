@@ -11,7 +11,7 @@ const UsePurchaseHistory = () => {
     const { isLoading, data: purchaseHistory = [], refetch } = useQuery({
         queryKey: ['purchaseHistory', user?.email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/purchaseHistory/${user?.email}`)
+            const res = await axiosSecure.get(`https://bistro-boss-server-rho-ten.vercel.app/purchaseHistory/${user?.email}`)
             return res.data;
         },
     })

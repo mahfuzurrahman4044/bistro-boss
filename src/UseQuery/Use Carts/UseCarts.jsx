@@ -18,7 +18,7 @@ const UseCarts = () => {
             return res.data;
         },
         // queryFn: async () => {
-        //     const res = await fetch(`http://localhost:5000/carts/${user?.email}`,
+        //     const res = await fetch(`https://bistro-boss-server-rho-ten.vercel.app/carts/${user?.email}`,
         //         {
         //             headers: {
         //                 authorization: `bearer ${token}`

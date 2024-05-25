@@ -11,7 +11,7 @@ const Admin = () => {
     const handleMakeAdmin = (user) => {
         console.log(user);
 
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://bistro-boss-server-rho-ten.vercel.app/users/admin/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const Admin = () => {
     const handleMakeSeller = (user) => {
         console.log(user);
 
-        fetch(`http://localhost:5000/users/seller/${user._id}`, {
+        fetch(`https://bistro-boss-server-rho-ten.vercel.app/users/seller/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())

@@ -12,7 +12,7 @@ const ContactUs = () => {
         const message = form.message.value;
         console.log({ userName, userEmail, subject, message });
 
-        fetch("http://localhost:5000/contactEmail", {
+        fetch("https://bistro-boss-server-rho-ten.vercel.app/contactEmail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

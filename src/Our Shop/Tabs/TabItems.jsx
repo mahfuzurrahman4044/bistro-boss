@@ -15,7 +15,7 @@ const TabItems = ({ item }) => {
       const cartDeatails = {
         cartId: item._id, name, image, price: item.price, email: user.email
       }
-      fetch("http://localhost:5000/carts", {
+      fetch("https://bistro-boss-server-rho-ten.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json"

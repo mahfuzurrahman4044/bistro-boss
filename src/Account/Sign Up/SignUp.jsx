@@ -27,7 +27,7 @@ const SignUp = () => {
           const createdUser = result.user;
           console.log(createdUser);
           const userInfo = { photoURL: data.photo, displayName: data.name, email: data.email }
-          fetch("http://localhost:5000/users", {
+          fetch("https://bistro-boss-server-rho-ten.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json"

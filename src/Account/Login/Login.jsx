@@ -52,7 +52,7 @@ const Login = () => {
       .then((res) => {
         const loggedUser = res.user;
         const userInfo = { photoURL: loggedUser.photoURL, displayName: loggedUser.displayName, email: loggedUser.email }
-        fetch("http://localhost:5000/users", {
+        fetch("https://bistro-boss-server-rho-ten.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json"

@@ -31,7 +31,7 @@ const AddedFoodHistory = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/menuDelete/${id}`, {
+                fetch(`https://bistro-boss-server-rho-ten.vercel.app/menuDelete/${id}`, {
                     method: "DELETE"
                 }
                 )
