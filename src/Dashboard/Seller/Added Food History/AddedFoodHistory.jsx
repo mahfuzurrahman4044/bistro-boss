@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 const AddedFoodHistory = () => {
     const [isLoading, addedFoodHistory, refetch] = UseAddedFoodHistory();
     // console.log(addedFoodHistory)
-    const total = addedFoodHistory.reduce((sum, item) => item.price + sum, 0)
+    const total = addedFoodHistory.reduce((sum, item) => parseFloat(item.price) + sum, 0)
 
     const { user, loading } = useContext(AuthContext)
     const [axiosSecure] = UseAxiosSecure();
@@ -64,7 +64,7 @@ const AddedFoodHistory = () => {
 
             <div className='font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Items: {addedFoodHistory.length}</h2>
-                <h2 className='text-xl'>Total Price: {"$"+total}</h2>
+                <h2 className='text-xl'>Total Price: {"$" + total}</h2>
             </div>
 
             {/* --------------------------Table----------------------- */}
