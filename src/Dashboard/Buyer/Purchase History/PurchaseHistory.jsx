@@ -7,10 +7,6 @@ const PurchaseHistory = () => {
     const [isLoading, purchaseHistory] = UsePurchaseHistory();
     // console.log(purchaseHistory);
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-
     const totalPrice = purchaseHistory.reduce((sum, item) => sum + parseFloat(item.price), 0);
     const totalItems = purchaseHistory.reduce((sum, item) => sum + item.quantity, 0);
 
