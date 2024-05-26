@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
     <div className="text-white text-center">
-      <div className="mt-16 flex">
-        <div className="w-1/2 bg-slate-700 py-8">
-          <h2 className="text-2xl my-2">CONTACT US</h2>
+      <div className="lg:mt-16 mt-8 flex">
+        <div className="w-1/2 bg-yellow-600 lg:py-8 py-4">
+          <h2 className="lg:text-2xl text-xl my-2">CONTACT US</h2>
           <p>
             123 ABS Street, Uni 21, Bangladesh <br />
             +88 123456789 <br />
@@ -11,8 +11,8 @@ const Footer = () => {
             Sat - Sun: 10:00 - 23:00
           </p>
         </div>
-        <div className="bg-slate-900 w-1/2 py-8">
-          <h2 className="text-2xl my-2">Follow US</h2>
+        <div className="bg-yellow-700 w-1/2 lg:py-8 py-4">
+          <h2 className="lg:text-2xl text-xl my-2">Follow US</h2>
           <p>Join us on social media</p>
           <div className="flex justify-center">
             <div>
@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-black py-2">
+      <div className="bg-amber-700 py-2">
         <h2>Copyright © CulinaryCloud. All rights reserved.</h2>
       </div>
     </div>

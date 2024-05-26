@@ -101,7 +101,7 @@ const Header = () => {
                       )}
                     </li></div>
                     : <li>
-                      <NavLink to="/login">Log in</NavLink>
+                      <NavLink className="btn btn-ghost border border-amber-700" to="/login">Log in</NavLink>
                     </li>
                 }
               </li>

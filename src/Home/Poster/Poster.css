@@ -1,9 +1,5 @@
-.carousel-img img {
-    height: 100vh;
-}
-
 @media only screen and (max-width:430px) {
-    .carousel-img img {
+    .poster-img img {
         height: 300px;
     }
 }

@@ -19,10 +19,10 @@ const ChefRecommends = () => {
         ></SectionTitle>
       </div>
 
-      <div className="flex justify-around items-center">
+      <div className="lg:flex justify-around items-center">
         {chefRecommends.map((item) => (
           <div key={item._id}>
-            <div className="card w-80 bg-base-100 shadow-2xl rounded-none text-center">
+            <div className="card w-80 bg-base-100 shadow-2xl rounded-none text-center lg:ms-0 ms-7 lg:my-0 my-5">
               <figure>
                 <img src={item.image} alt="Shoes" />
               </figure>
