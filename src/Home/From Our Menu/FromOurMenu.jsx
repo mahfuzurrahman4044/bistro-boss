@@ -21,7 +21,7 @@ const FromOurMenu = () => {
             <h2>March 20, 2023</h2>
             <h2>WHERE CAN I GET SOME?</h2>
           </div>
-          <p className="">
+          <p className="lg:pe-0 pe-20">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
             voluptate facere, deserunt dolores maiores quod nobis quas quasi.
             Eaque repellat recusandae ad laudantium tempore consequatur

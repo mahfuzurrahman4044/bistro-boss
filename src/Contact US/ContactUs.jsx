@@ -36,7 +36,7 @@ const ContactUs = () => {
                 <div className="banner-img">
                     <img src={bannerImg} alt="" />
                 </div>
-                <div className="bg-black bg-opacity-40 w-2/3 mx-auto text-center text-white py-16 relative bottom-96">
+                <div className="bg-black bg-opacity-40 w-2/3 mx-auto text-center text-white py-16 relative lg:bottom-80 bottom-56">
                     <h2 className="text-4xl font-serif">CONTACT US</h2>
                     <p>WOULD YOU LIKE TO TRY A DISH?</p>
                 </div>
@@ -47,7 +47,7 @@ const ContactUs = () => {
                 </div>
 
                 {/* -------------Flex Items-------------- */}
-                <div className="flex justify-around">
+                <div className="lg:flex justify-around lg:ps-0 ps-24">
                     <div className="w-48 text-center">
                         <div className="bg-yellow-600 py-2">
                             <i class="fa-solid fa-phone"></i>

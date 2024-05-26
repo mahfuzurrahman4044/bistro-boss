@@ -1,11 +1,13 @@
+import "./SectionBanner.css"
+
 const SectionBanner = ({ bannerImg, title, para }) => {
   return (
-    <div>
-      <div>
+    <div className="mx-auto lg:my-20 lg:w-2/3">
+      <div className="poster-img img">
         <img src={bannerImg} alt="" />
       </div>
-      <div className="bg-black bg-opacity-40 w-2/3 mx-auto text-center text-white py-16 relative bottom-80">
-        <h2 className="text-4xl font-serif">{title}</h2>
+      <div className="bg-white lg:w-1/2 w-2/3 mx-auto lg:p-10 p-4 text-center relative bottom-64">
+        <h2 className="lg:text-4xl text-2xl font-serif">{title}</h2>
         <p>{para}</p>
       </div>
     </div>

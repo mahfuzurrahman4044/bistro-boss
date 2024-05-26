@@ -23,28 +23,28 @@ const OrderTabs = () => {
           <Tab>DRINKS</Tab>
         </TabList>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 gap-4">
             {salad.map((item) => (
               <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 gap-4">
             {pizza.map((item) => (
               <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 gap-4">
             {soup.map((item) => (
               <TabItems key={item._id} item={item}></TabItems>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 gap-4">
             {dessert.map((item) => (
               <TabItems key={item._id} item={item}></TabItems>
             ))}

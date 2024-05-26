@@ -56,7 +56,7 @@ const TabItems = ({ item }) => {
 
   return (
     <div>
-      <div className="card w-80 bg-base-100 shadow-2xl rounded-none text-center">
+      <div className="card lg:w-80 w-60 bg-base-100 shadow-2xl rounded-none text-center">
         <figure>
           <img src={item.image} alt="Shoes" />
         </figure>

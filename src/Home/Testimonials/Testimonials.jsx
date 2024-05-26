@@ -26,7 +26,7 @@ const Testimonials = () => {
 
   // console.log(reviews);
   return (
-    <div className="w-2/3 mx-auto">
+    <div className="lg:w-2/3 mx-auto">
       <div>
         <SectionTitle
           subtitle={"---What Our Clients Say---"}

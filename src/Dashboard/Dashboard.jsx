@@ -31,7 +31,7 @@ const Dashboard = () => {
                             </div>
                         </>
                     )}
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden my-6">Open drawer</label>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>

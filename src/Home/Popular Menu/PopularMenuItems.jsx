@@ -10,11 +10,11 @@ const PopularMenuItems = ({ item }) => {
           alt=""
         />
       </div>
-      <div>
+      <div className="text-center lg:text-left">
         <h2 className="uppercase lg:text-2xl text-xl font-serif">{name}-----</h2>
         <p>{recipe}</p>
       </div>
-      <div className="lg:text-2xl text-xl font-serif text-yellow-600">${price}</div>
+      <div className="lg:text-2xl text-xl font-serif text-yellow-600 text-center">${price}</div>
     </div>
   );
 };

@@ -34,23 +34,23 @@ const OrderOnline = () => {
         >
           <SwiperSlide>
             <img src={swiperImg1} alt="" />
-            <h3 className="text-2xl uppercase font-serif">Salads</h3>
+            <h3 className="text-xl lg:text-2xl uppercase font-serif">Salads</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg2} alt="" />
-            <h3 className="text-2xl uppercase font-serif">Soups</h3>
+            <h3 className="text-xl lg:text-2xl uppercase font-serif">Soups</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg3} alt="" />
-            <h3 className="text-2xl uppercase font-serif">Pizzas</h3>
+            <h3 className="text-xl lg:text-2xl uppercase font-serif">Pizzas</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg4} alt="" />
-            <h3 className="text-2xl uppercase font-serif">Desserts</h3>
+            <h3 className="text-xl lg:text-2xl uppercase font-serif">Desserts</h3>
           </SwiperSlide>
           <SwiperSlide>
             <img src={swiperImg5} alt="" />
-            <h3 className="text-2xl uppercase font-serif">Salad</h3>
+            <h3 className="text-xl lg:text-2xl uppercase font-serif">Salad</h3>
           </SwiperSlide>
         </Swiper>
       </div>

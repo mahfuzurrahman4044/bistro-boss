@@ -86,7 +86,7 @@ const Header = () => {
                         />
                       </button>
                       {isProfileMenuOpen && (
-                        <ul className="absolute right-0 mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
+                        <ul className="absolute mt-10 w-48 py-2 bg-black bg-opacity-20 text-white rounded-lg shadow-lg">
                           <li className="px-4 py-2 hover:bg-slate-300 rounded-md">
                             <Link onClick={closeProfileMenu} to="/profile">
                               Profile
