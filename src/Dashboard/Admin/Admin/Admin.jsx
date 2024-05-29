@@ -66,7 +66,7 @@ const Admin = () => {
 
             {/* ------------------Table---------------------- */}
 
-            <div className=''>
+            <div className='lg:ps-0 ps-60'>
                 <div className="overflow-x-auto">
                     <table className="table">
                         <thead className='bg-yellow-600'>

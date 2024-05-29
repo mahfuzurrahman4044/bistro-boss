@@ -20,13 +20,13 @@ const PurchaseHistory = () => {
                 <DashboardSectionTitle title={"PAYMENT HISTORY"} subtitle={"---At a Glance!----"}></DashboardSectionTitle>
             </div>
 
-            <div className='font-serif font-semibold flex justify-around items-center my-6'>
+            <div className='lg:ps-0 ps-36 font-serif font-semibold flex justify-around items-center my-6'>
                 <h2 className='text-xl'>Total Items: {totalItems}</h2>
                 <h2 className='text-xl'>Total Price: {"$" + totalPrice.toFixed(2)}</h2>
             </div>
 
             {/* --------------------------Table----------------- */}
-            <div className=''>
+            <div className='lg:ps-0 ps-48'>
                 <div className="overflow-x-auto">
                     <table className="table">
                         {/* head */}
