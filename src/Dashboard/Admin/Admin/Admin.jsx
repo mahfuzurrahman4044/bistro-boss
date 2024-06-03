@@ -11,7 +11,7 @@ const Admin = () => {
     const handleMakeAdmin = (user) => {
         console.log(user);
 
-        fetch(`https://bistro-boss-server-rho-ten.vercel.app/users/admin/${user._id}`, {
+        fetch(`https://bistro-boss-server-mahfuzur-rahman.vercel.app/users/admin/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const Admin = () => {
     const handleMakeSeller = (user) => {
         console.log(user);
 
-        fetch(`https://bistro-boss-server-rho-ten.vercel.app/users/seller/${user._id}`, {
+        fetch(`https://bistro-boss-server-mahfuzur-rahman.vercel.app/users/seller/${user._id}`, {
             method: "PATCH"
         })
             .then(res => res.json())
@@ -54,7 +54,7 @@ const Admin = () => {
 
     return (
         <div>
-            <Helmet><title>All Users || Dashboard || Bistro Boss Restaurant</title></Helmet>
+            <Helmet><title>All Users || Dashboard || Bistro Boss</title></Helmet>
 
             <div>
                 <DashboardSectionTitle title={"MANAGE ALL USERS"} subtitle={"---How many---"}></DashboardSectionTitle>

@@ -19,7 +19,7 @@ const PaymentGateway = () => {
     return (
         <div>
             <Helmet>
-                <title>Payment Gateway || Dashboard || Bistro Boss  Restaurant</title>
+                <title>Payment Gateway || Dashboard || Bistro Boss</title>
             </Helmet>
 
             <div>

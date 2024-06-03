@@ -65,7 +65,7 @@ const AddFood = () => {
 
     return (
         <div>
-            <Helmet><title>Add Food || Dashboard || Bistro Boss Restaurant</title></Helmet>
+            <Helmet><title>Add Food || Dashboard || Bistro Boss</title></Helmet>
             <div>
                 <DashboardSectionTitle title={"ADD AN ITEM"} subtitle={"---What's new---"} />
             </div>

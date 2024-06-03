@@ -52,7 +52,7 @@ const Login = () => {
       .then((res) => {
         const loggedUser = res.user;
         const userInfo = { photoURL: loggedUser.photoURL, displayName: loggedUser.displayName, email: loggedUser.email }
-        fetch("https://bistro-boss-server-rho-ten.vercel.app/users", {
+        fetch("https://bistro-boss-server-mahfuzur-rahman.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json"
@@ -76,7 +76,7 @@ const Login = () => {
   return (
     <div>
       <Helmet>
-        <title>Log in || Bistro Boss Restaurant</title>{" "}
+        <title>Log in || Bistro Boss</title>{" "}
       </Helmet>
       <div className="hero min-h-screen pt-28">
         <div className="hero-content flex-col lg:flex-row-reverse">

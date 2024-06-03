@@ -31,7 +31,7 @@ const AddedFoodHistory = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://bistro-boss-server-rho-ten.vercel.app/menuDelete/${id}`, {
+                fetch(`https://bistro-boss-server-mahfuzur-rahman.vercel.app/menuDelete/${id}`, {
                     method: "DELETE"
                 }
                 )
@@ -57,7 +57,7 @@ const AddedFoodHistory = () => {
 
     return (
         <div>
-            <Helmet><title>Added Food History || Dashboard || Bistro Boss  Restaurant</title></Helmet>
+            <Helmet><title>Added Food History || Dashboard || Bistro Boss</title></Helmet>
             <div>
                 <DashboardSectionTitle title={"MANAGE ALL ITEMS"} subtitle={"---Hurry Up!---"}></DashboardSectionTitle>
             </div>

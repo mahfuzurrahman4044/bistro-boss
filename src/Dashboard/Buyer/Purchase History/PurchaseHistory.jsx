@@ -13,7 +13,7 @@ const PurchaseHistory = () => {
     return (
         <div>
             <Helmet>
-                <title>Purchase History || Dashboard || Bistro Boss Restaurant</title>
+                <title>Purchase History || Dashboard || Bistro Boss</title>
             </Helmet>
 
             <div>

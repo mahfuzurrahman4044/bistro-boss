@@ -47,7 +47,7 @@ const AllFoods = () => {
 
     return (
         <div>
-            <Helmet><title>All Foods || Dashboard || Bistro Boss  Restaurant</title></Helmet>
+            <Helmet><title>All Foods || Dashboard || Bistro Boss</title></Helmet>
             <div>
                 <DashboardSectionTitle title={"MANAGE ALL ITEMS"} subtitle={"---Hurry Up!---"}></DashboardSectionTitle>
             </div>

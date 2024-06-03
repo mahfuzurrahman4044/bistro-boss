@@ -22,7 +22,7 @@ const MyCart = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://bistro-boss-server-rho-ten.vercel.app/deleteCart/${id}`, {
+                fetch(`https://bistro-boss-server-mahfuzur-rahman.vercel.app/deleteCart/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -46,7 +46,7 @@ const MyCart = () => {
 
     return (
         <div>
-            <Helmet><title>My Cart || Dashboard || Bistro Boss  Restaurant</title></Helmet>
+            <Helmet><title>My Cart || Dashboard || Bistro Boss</title></Helmet>
             <div>
                 <DashboardSectionTitle title={"WANNA ADD MORE"} subtitle={"---My Cart---"}></DashboardSectionTitle>
             </div>

@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 const NotFound = () => {
     return (
         <div>
-            <Helmet><title>Not Found || Bistro Boss Restaurant</title></Helmet>
+            <Helmet><title>Not Found || Bistro Boss</title></Helmet>
             <div className='banner-img'>
                 <img src={img} alt="" />
             </div>

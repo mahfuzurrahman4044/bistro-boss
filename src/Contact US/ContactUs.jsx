@@ -12,7 +12,7 @@ const ContactUs = () => {
         const message = form.message.value;
         console.log({ userName, userEmail, subject, message });
 
-        fetch("https://bistro-boss-server-rho-ten.vercel.app/contactEmail", {
+        fetch("https://bistro-boss-server-mahfuzur-rahman.vercel.app/contactEmail", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ const ContactUs = () => {
     }
     return (
         <div>
-            <Helmet><title>Contact Us || Bistro Boss Restaurant</title></Helmet>
+            <Helmet><title>Contact Us || Bistro Boss</title></Helmet>
             {/* --------------Banner Starts Here----------------- */}
             <div>
                 <div className="banner-img">
